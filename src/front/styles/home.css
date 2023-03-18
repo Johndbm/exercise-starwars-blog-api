@@ -5,3 +5,24 @@
     one more css for each page that will contain the selected used 
     on that page only (the ones not reused in other pages).
 */
+
+div.scrollbar {
+    overflow: auto;
+    white-space: nowrap;
+  }
+  
+  div.scrollbar a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
+  }
+  
+  div.scrollbar a:hover {
+    background-color: #777;
+  }
+  
+  .row {
+    flex-wrap: nowrap;
+  }
