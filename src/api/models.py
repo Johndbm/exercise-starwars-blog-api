@@ -10,6 +10,7 @@ class User(db.Model):
     lastname = db.Column(db.String(30))
     name = db.Column(db.String(30))
     username = db.Column(db.String(30), unique=True, nullable=False)
+    favorites = db.relationship('Favorite', backref='user')
 
     def __repr__(self):
         return f'<User {self.email}>'
@@ -28,8 +29,8 @@ class User(db.Model):
 class Favorite(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
-    person_id = db.Column(db.Integer)
-    planet_id = db.Column(db.Integer)
+    person_id = db.Column(db.Integer, db.ForeignKey("person.id"), nullable=True)
+    planet_id = db.Column(db.Integer, db.ForeignKey("planet.id"), nullable=True)
 
     def __repr__(self):
         return f'<Favorite {self.user_id}>'
